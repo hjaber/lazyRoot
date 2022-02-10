@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import Image from "next/image";
-import Card from "./components/card";
 
 const imageArrOne = [
   "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -30,11 +29,27 @@ export default function IndexPage() {
           Next/image lazyRoot Horizontal Scrolling
         </Heading>
 
-        <div ref={galleryContainer} style={{overflowX: 'scroll', width: '500px'}}>
+        <Box
+          maxW={{
+            base: "95%",
+            sm: "65%",
+            md: "50%",
+            lg: "40%",
+            "2xl": "25%",
+          }}
+          minW={{
+            base: "95%",
+            sm: "65%",
+            md: "50%",
+            lg: "40%",
+            "2xl": "25%",
+          }}
+          m="auto"
+        >
           <Heading size="md" textAlign="center">
-            lazyRoot
+            lazyRoot loading
           </Heading>
-          <Flex gap="0.6em">
+          <Flex gap="0.6em" overflowX="scroll" ref={galleryContainer}>
             {imageArrOne.map((src) => (
               <Box m="auto" minW="100%" key={src}>
                 <Image
@@ -45,21 +60,34 @@ export default function IndexPage() {
                   width="400"
                   height="300"
                   layout="responsive"
-                  //override lazyBoundary default
-                  lazyBoundary="1000px"
-                  //lazyRoot only specified on first box
                   lazyRoot={galleryContainer}
                 />
               </Box>
             ))}
           </Flex>
-        </div>
+        </Box>
 
-        <Card>
+        <Box
+          maxW={{
+            base: "95%",
+            sm: "65%",
+            md: "50%",
+            lg: "40%",
+            "2xl": "25%",
+          }}
+          minW={{
+            base: "95%",
+            sm: "65%",
+            md: "50%",
+            lg: "40%",
+            "2xl": "25%",
+          }}
+          m="auto"
+        >
           <Heading size="md" textAlign="center">
             Priority Loading
           </Heading>
-          <Flex gap="0.6em">
+          <Flex gap="0.6em" overflowX="scroll">
             {imageArrTwo.map((src) => (
               <Box m="auto" minW="100%" key={src}>
                 <Image
@@ -76,28 +104,7 @@ export default function IndexPage() {
               </Box>
             ))}
           </Flex>
-        </Card>
-
-        <Card>
-          <Heading size="md" textAlign="center">
-            Default
-          </Heading>
-          <Flex gap="0.6em">
-            {imageArrThree.map((src) => (
-              <Box m="auto" minW="100%" key={src}>
-                <Image
-                  src={src}
-                  alt="horizontal scroll"
-                  quality="100"
-                  objectFit="cover"
-                  width="600"
-                  height="450"
-                  layout="responsive"
-                />
-              </Box>
-            ))}
-          </Flex>
-        </Card>
+        </Box>
       </Flex>
     </Box>
   );
