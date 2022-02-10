@@ -30,19 +30,13 @@ export default function IndexPage() {
           Next/image lazyRoot Horizontal Scrolling
         </Heading>
 
-        <Card>
+        <Card ref={galleryContainer}>
           <Heading size="md" textAlign="center">
             lazyRoot
           </Heading>
-          <Flex gap="0.6em" overflowX="auto">
+          <Flex gap="0.6em">
             {imageArrOne.map((src) => (
-              <Box
-                m="auto"
-                minW="100%"
-                overflow="hidden"
-                key={src}
-                ref={galleryContainer}
-              >
+              <Box m="auto" minW="100%" key={src}>
                 <Image
                   src={src}
                   alt="horizontal scroll"
@@ -65,9 +59,9 @@ export default function IndexPage() {
           <Heading size="md" textAlign="center">
             Priority Loading
           </Heading>
-          <Flex gap="0.6em" overflowX="auto">
+          <Flex gap="0.6em">
             {imageArrTwo.map((src) => (
-              <Box m="auto" minW="100%" overflow="hidden" key={src}>
+              <Box m="auto" minW="100%" key={src}>
                 <Image
                   src={src}
                   alt="horizontal scroll"
@@ -88,9 +82,9 @@ export default function IndexPage() {
           <Heading size="md" textAlign="center">
             Default
           </Heading>
-          <Flex gap="0.6em" overflowX="auto">
+          <Flex gap="0.6em">
             {imageArrThree.map((src) => (
-              <Box m="auto" minW="100%" overflow="hidden" key={src}>
+              <Box m="auto" minW="100%" key={src}>
                 <Image
                   src={src}
                   alt="horizontal scroll"

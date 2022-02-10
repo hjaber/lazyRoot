@@ -18,6 +18,7 @@ function Card({ children }) {
         "2xl": "25%",
       }}
       m="auto"
+      overflowX="scroll"
     >
       {children}
     </Box>
