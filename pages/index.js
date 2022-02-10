@@ -30,7 +30,7 @@ export default function IndexPage() {
           Next/image lazyRoot Horizontal Scrolling
         </Heading>
 
-        <Card ref={galleryContainer}>
+        <div ref={galleryContainer} style={{overflowX: 'scroll', width: '500px'}}>
           <Heading size="md" textAlign="center">
             lazyRoot
           </Heading>
@@ -53,7 +53,7 @@ export default function IndexPage() {
               </Box>
             ))}
           </Flex>
-        </Card>
+        </div>
 
         <Card>
           <Heading size="md" textAlign="center">
